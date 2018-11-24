@@ -1,0 +1,9 @@
+- hosts: webservers
+  remote_user: root
+  tasks:
+  - name: install httpd
+    yum: name=httpd state=present
+  - name: install configure file
+    copy: src=httpd.conf dest=/etc/httpd/conf/
+  - name: start httpd service
+    service: name=httpd state=started
